@@ -22,12 +22,8 @@ steps:
     php -version
   displayName: 'Use PHP version $(phpVersion)'
 
-- script: composer install --no-interaction --prefer-dist
+- script: cd bgs_server && composer install --no-interaction --prefer-dist
   displayName: 'composer install'
-
-- task: Npm@1
-  inputs:
-    command: 'install'
 
 - task: ArchiveFiles@2
   inputs:
