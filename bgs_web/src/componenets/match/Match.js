@@ -7,13 +7,21 @@ const headers = ['Home', 'Away', '구분', '라운드1', '라운드2', '라운�
 
 function Match () {
   const [ data, setData] = useState([]);
-  const updateData = () => {
+  const callAPIAndUpdate = () => {
     BGSClient.getMatches().then( res => {
       res.json().then( jsonRes => {
         setData(jsonRes);
       })
     })
   }
+  const updateData = () => {
+    callAPIAndUpdate();
+    const interval = setInterval(callAPIAndUpdate, 5000);
+    return () => {
+      clearInterval(interval);
+    }
+  }
+
   useEffect(updateData, [])
   return (
     <Container>

@@ -7,12 +7,19 @@ const headers = ['유저이름', '유저아이디', '사용기기', 'ELO'];
 
 function Online () {
   const [ data, setData] = useState([]);
-  const updateData = () => {
+  const callAPIAndUpdate = () => {
     BGSClient.getOnlineUsers().then( res => {
       res.json().then( jsonRes => {
         setData(jsonRes);
       })
     })
+  }
+  const updateData = () => {
+    callAPIAndUpdate();
+    const interval = setInterval(callAPIAndUpdate, 5000);
+    return () => {
+      clearInterval(interval);
+    }
   }
   useEffect(updateData, [])
   return (

@@ -17,29 +17,9 @@ const getRanks = () => {
 }
 
 const getBlackLists = () => {
-  let mock = [
-    {
-      'user_id': 123124,
-      'user_name': '[BGS]soysauce',
-      'reason': '개잘핵'
-    },
-    {
-      'user_id': 123124,
-      'user_name': '[BGS]soysauce',
-      'reason': '개잘핵'
-    },
-    {
-      'user_id': 123124,
-      'user_name': '[BGS]soysauce',
-      'reason': '개잘핵'
-    },
-    {
-      'user_id': 123124,
-      'user_name': '[BGS]soysauce',
-      'reason': '개잘핵'
-    }
-  ]
-  return mock
+  return fetch('/api/blacklists', {
+    method: 'GET'
+  });
 }
   
 module.exports.getOnlineUsers = getOnlineUsers;
