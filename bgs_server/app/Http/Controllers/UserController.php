@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Users;
+use Illuminate\Support\Facades\Redis;
 
 class UserController extends Controller
 {
     public function getAllOnlineUsers()
     {
-        $users = Users::where('is_online', 1)->get();
+        $users = Redis::get('users');
         return $users;
     }
 }
