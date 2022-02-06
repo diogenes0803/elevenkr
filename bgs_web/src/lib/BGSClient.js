@@ -1,23 +1,23 @@
 const getOnlineUsers = async () => {
-  return fetch(`/api/online`, {
+  return fetch(`https://api.bgseleven.com/api/online`, {
     method: 'GET'
   });
 }
 
 const getMatches = () => {
-  return fetch('/api/matches', {
+  return fetch('https://api.bgseleven.com/api/matches', {
     method: 'GET'
   });
 }
 
 const getRanks = () => {
-  return fetch('/api/ranks', {
+  return fetch('https://api.bgseleven.com/api/ranks', {
     method: 'GET'
   });
 }
 
 const getBlackLists = () => {
-  return fetch('/api/blacklists', {
+  return fetch('https://api.bgseleven.com/api/blacklists', {
     method: 'GET'
   });
 }
