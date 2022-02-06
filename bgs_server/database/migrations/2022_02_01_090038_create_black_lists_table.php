@@ -18,7 +18,6 @@ class CreateBlackListsTable extends Migration
             $table->integer('user_id');
             $table->string('user_name');
             $table->text('reasons');
-            $table->timestamps();
         });
     }
 

@@ -87,7 +87,7 @@ class GetData extends Command
                         $refined = [
                             'user_name' => $homePlayer['UserName'],
                             'opponent_name' => $awayPlayer['UserName'],
-                            'type' => $thisMatch['Ranked'] ? '수위전' : '친선전',
+                            'type' => $thisMatch['Ranked'] ? '순위전' : '친선전',
                             'round1' => '-',
                             'round2' => '-',
                             'round3' => '-',
