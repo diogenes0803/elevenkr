@@ -1,14 +1,14 @@
 import Container from 'react-bootstrap/Container';
 import BGSTable from '../commons/BGSTable';
 import { useState, useEffect } from 'react';
-import BGSClient from '../../lib/BGSClient';
+import { getOnlineUsers } from '../../lib/BGSClient';
 
 const headers = ['유저이름', '유저아이디', '사용기기', 'ELO'];
 
 function Online () {
   const [ data, setData] = useState([]);
   const callAPIAndUpdate = () => {
-    BGSClient.getOnlineUsers().then( res => {
+    getOnlineUsers().then( res => {
       res.json().then( jsonRes => {
         setData(jsonRes);
       })

@@ -1,14 +1,14 @@
 import Container from 'react-bootstrap/Container';
 import BGSTable from '../commons/BGSTable';
 import { useState, useEffect } from 'react';
-import BGSClient from '../../lib/BGSClient';
+import { getMatches } from '../../lib/BGSClient';
 
 const headers = ['Home', 'Away', '구분', '라운드1', '라운드2', '라운드3', 'ELO HOME', 'ELO AWAY'];
 
 function Match () {
   const [ data, setData] = useState([]);
   const callAPIAndUpdate = () => {
-    BGSClient.getMatches().then( res => {
+    getMatches().then( res => {
       res.json().then( jsonRes => {
         setData(jsonRes);
       })

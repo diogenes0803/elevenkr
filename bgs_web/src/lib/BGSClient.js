@@ -21,8 +21,9 @@ const getBlackLists = () => {
     method: 'GET'
   });
 }
-  
-module.exports.getOnlineUsers = getOnlineUsers;
-module.exports.getMatches = getMatches;
-module.exports.getRanks = getRanks;
-module.exports.getBlackLists = getBlackLists;
+export {
+  getOnlineUsers,
+  getMatches,
+  getRanks,
+  getBlackLists
+}
