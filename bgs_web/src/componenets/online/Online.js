@@ -22,6 +22,7 @@ function Online () {
         })
       })
     }
+    callAPIAndUpdate();
     const interval = setInterval(callAPIAndUpdate, 5000);
     return () => {
       clearInterval(interval);
