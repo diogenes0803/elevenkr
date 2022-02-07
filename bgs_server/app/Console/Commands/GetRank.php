@@ -49,6 +49,7 @@ class GetRank extends Command
             {
                 $refinedUser = [
                     'rank' => -1,
+                    'user_id' => $user['id'],
                     'user_name' => $user['attributes']['user-name'],
                     'elo' => $user['attributes']['elo'],
                     'world_rank' => $user['attributes']['rank'] > 0 ? $user['attributes']['rank'] : INF,
