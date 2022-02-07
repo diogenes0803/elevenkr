@@ -7,14 +7,23 @@ const headers = ['Home', 'Away', '구분', '라운드1', '라운드2', '라운�
 
 function Match () {
   const [ data, setData] = useState([]);
-  const callAPIAndUpdate = () => {
-    getMatches().then( res => {
-      res.json().then( jsonRes => {
-        setData(jsonRes);
-      })
-    })
+  const makeLink = (context, id) => {
+    return <a target='_blank' rel="noreferrer" href={`https://elevenvr.net/eleven/${id}`}>{context}</a>
   }
   const updateData = () => {
+    const callAPIAndUpdate = () => {
+      getMatches().then( res => {
+        res.json().then( jsonRes => {
+          jsonRes.forEach( (obj) => {
+            obj.user_name = makeLink(obj.user_name, obj.user_id);
+            obj.opponent_name = makeLink(obj.opponent_name, obj.opponent_id);
+            delete obj.user_id;
+            delete obj.opponent_id;
+          })
+          setData(jsonRes);
+        })
+      })
+    }
     callAPIAndUpdate();
     const interval = setInterval(callAPIAndUpdate, 5000);
     return () => {
