@@ -18,7 +18,7 @@ function BGSTable(props) {
 
   return (
     <Container>
-      <Table striped bordered hover>
+      <Table responsive striped bordered hover>
         {props.headers != null &&
           <thead>
             <tr key="unique">
