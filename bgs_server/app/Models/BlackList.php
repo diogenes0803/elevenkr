@@ -9,6 +9,8 @@ class BlackList extends Model
 {
     use HasFactory;
     protected $guarded = [];
+    public $timestamps = false;
+    protected $primaryKey = 'user_id';
 
     public function BGSMatches()
     {
