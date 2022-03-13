@@ -17,6 +17,7 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('bgs:pull')->everyMinute();
         $schedule->command('bgs:rank')->everyFiveMinutes();
+        $schedule->command('bgs:blacklist_update')->daily();
     }
 
     /**
