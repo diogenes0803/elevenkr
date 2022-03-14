@@ -3,7 +3,7 @@ import BGSTable from '../commons/BGSTable';
 import { useState, useEffect } from 'react';
 import { getBlackLists } from '../../lib/BGSClient';
 
-const headers = ['유저아이디', '유저이름', '비고'];
+const headers = ['', '유저아이디', '유저이름', '비고'];
 
 function Blacklist () {
   const [ data, setData] = useState([]);
