@@ -32,7 +32,7 @@ function ElevenK () {
       <Row className="justify-content-md-center spacing">
         <Col md="auto">
           <Button href="https://open.kakao.com/o/gMdUG3he" variant="primary" size="lg">
-            새 오픈채팅방 가기
+            새 오픈채팅방 가기 (코드 4444)
           </Button>
         </Col>
       </Row>
