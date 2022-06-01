@@ -22,12 +22,12 @@ steps:
     php -version
   displayName: 'Use PHP version $(phpVersion)'
 
-- script: cd bgs_server && composer install --no-interaction --prefer-dist
+- script: cd elevenkr_server && composer install --no-interaction --prefer-dist
   displayName: 'composer install'
 
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(System.DefaultWorkingDirectory)/bgs_server'
+    rootFolderOrFile: '$(System.DefaultWorkingDirectory)/elevenkr_server'
     includeRootFolder: false
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId)_server.zip'
@@ -43,13 +43,13 @@ steps:
 - script: |
           npm install
           npm run build
-  workingDirectory: '$(System.DefaultWorkingDirectory)/bgs_web'
+  workingDirectory: '$(System.DefaultWorkingDirectory)/elevenkr_web'
   failOnStderr: false
   
 - task: ArchiveFiles@2
   displayName: 'Archive files'
   inputs:
-    rootFolderOrFile: '$(System.DefaultWorkingDirectory)/bgs_web/build'
+    rootFolderOrFile: '$(System.DefaultWorkingDirectory)/elevenkr_web/build'
     includeRootFolder: false
     archiveType: zip
     archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId)_web.zip
