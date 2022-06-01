@@ -36,7 +36,7 @@ class GetData extends Command
 
     private function elevenkrCheck($userName)
     {
-        if(Str::contains(Str::upper($userName), "11K"))
+        if(Str::startsWith(Str::upper($userName), "11K_"))
         {
             return true;
         }

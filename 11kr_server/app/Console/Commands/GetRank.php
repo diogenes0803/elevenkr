@@ -47,16 +47,20 @@ class GetRank extends Command
         {
             foreach($response['data'] as $user)
             {
-                $refinedUser = [
-                    'rank' => -1,
-                    'user_id' => $user['id'],
-                    'user_name' => $user['attributes']['user-name'],
-                    'elo' => $user['attributes']['elo'],
-                    'world_rank' => $user['attributes']['rank'] > 0 ? $user['attributes']['rank'] : INF,
-                    'wins' => $user['attributes']['wins'],
-                    'loses' => $user['attributes']['losses']
-                ];
-                array_push($elevenkrUsers, $refinedUser);
+                if(Str::startsWith($user['attributes']['user-name'], "11K_" 
+                    || Str::startsWith($user['attributes']['user-name'], "11K-")
+                {
+                    $refinedUser = [
+                        'rank' => -1,
+                        'user_id' => $user['id'],
+                        'user_name' => $user['attributes']['user-name'],
+                        'elo' => $user['attributes']['elo'],
+                        'world_rank' => $user['attributes']['rank'] > 0 ? $user['attributes']['rank'] : INF,
+                        'wins' => $user['attributes']['wins'],
+                        'loses' => $user['attributes']['losses']
+                    ];
+                    array_push($elevenkrUsers, $refinedUser);
+                }
             }
             if($response['links']['next'])
             {
