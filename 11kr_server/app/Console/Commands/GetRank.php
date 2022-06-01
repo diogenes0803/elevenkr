@@ -39,7 +39,7 @@ class GetRank extends Command
      */
     public function handle()
     {
-        $apiUrl = env('ELEVEN_API', '')."/accounts/search/11kr";
+        $apiUrl = env('ELEVEN_API', '')."/accounts/search/11K";
         $response = Http::get($apiUrl)->json();
         $elevenkrUsers = [];
         $lastPage = false;
