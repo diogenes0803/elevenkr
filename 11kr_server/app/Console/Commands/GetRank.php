@@ -47,8 +47,8 @@ class GetRank extends Command
         {
             foreach($response['data'] as $user)
             {
-                if(Str::startsWith($user['attributes']['user-name'], "11K_" 
-                    || Str::startsWith($user['attributes']['user-name'], "11K-")
+                if(Str::startsWith($user['attributes']['user-name'], "11K_") 
+                    || Str::startsWith($user['attributes']['user-name'], "11K-"))
                 {
                     $refinedUser = [
                         'rank' => -1,
