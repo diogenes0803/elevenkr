@@ -41,38 +41,30 @@ class GetRank extends Command
      */
     public function handle()
     {
-        $apiUrl = env('ELEVEN_API', '')."/accounts/search/11K";
-        $response = Http::get($apiUrl)->json();
+        $apiUrl = env('ELEVEN_API', '')."/accounts/";
         $elevenkrUsers = [];
-        $lastPage = false;
-        while(!$lastPage)
+        $users = User::all();
+        foreach($users as $thisUser)
         {
-            foreach($response['data'] as $user)
+
+            $response = Http::get($apiUrl.$thisUser['user_id'])->json();
+            if($response['data'])
             {
-                $users = User::all();
-                if($users->contains($user['id']))
-                {
-                    $refinedUser = [
-                        'rank' => -1,
-                        'user_id' => $user['id'],
-                        'user_name' => $user['attributes']['user-name'],
-                        'elo' => $user['attributes']['elo'],
-                        'world_rank' => $user['attributes']['rank'] > 0 ? $user['attributes']['rank'] : INF,
-                        'wins' => $user['attributes']['wins'],
-                        'loses' => $user['attributes']['losses']
-                    ];
-                    array_push($elevenkrUsers, $refinedUser);
-                }
+                $user = $response['data'];
+                $refinedUser = [
+                    'rank' => -1,
+                    'user_id' => $user['id'],
+                    'user_name' => $user['attributes']['user-name'],
+                    'elo' => $user['attributes']['elo'],
+                    'world_rank' => $user['attributes']['rank'] > 0 ? $user['attributes']['rank'] : INF,
+                    'wins' => $user['attributes']['wins'],
+                    'loses' => $user['attributes']['losses']
+                ];
+                array_push($elevenkrUsers, $refinedUser);
             }
-            if($response['links']['next'])
-            {
-                $response = Http::get($response['links']['next'])->json();
-            }
-            else
-            {
-                $lastPage = true;
-            }
+            
         }
+
         $elevenkrUsers = collect($elevenkrUsers)->sortBy('world_rank')->toArray();
         $orderedUsers = [];
         $rankCount = 1;
