@@ -6,6 +6,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Str;
+use App\Models\User;
 
 class GetRank extends Command
 {
@@ -48,8 +49,8 @@ class GetRank extends Command
         {
             foreach($response['data'] as $user)
             {
-                if(Str::startsWith($user['attributes']['user-name'], "11K_") 
-                    || Str::startsWith($user['attributes']['user-name'], "11K-"))
+                $users = User::all();
+                if($users->contains($user['id']))
                 {
                     $refinedUser = [
                         'rank' => -1,
