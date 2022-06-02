@@ -6,6 +6,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Redis;
+use App\Models\User;
 
 
 class GetData extends Command
@@ -34,18 +35,6 @@ class GetData extends Command
         parent::__construct();
     }
 
-    private function elevenkrCheck($userName)
-    {
-        if(Str::startsWith(Str::upper($userName), "11K_"))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
     /**
      * Execute the console command.
      *
@@ -63,10 +52,11 @@ class GetData extends Command
             $elevenkrMatches = [];
             if($elevenInfo)
             {
+                $users = User::all();
                 $success = true;
                 foreach($elevenInfo['OnlineUses'] as $thisUser) 
                 {
-                    if($this->elevenkrCheck($thisUser['UserName']))
+                    if($users->contains($thisUser['Id']))
                     {
                         $refined = [
                             'user_name' => $thisUser['UserName'],
@@ -82,7 +72,7 @@ class GetData extends Command
                 {
                     $homePlayer = $thisMatch['HomePlayer'];
                     $awayPlayer = $thisMatch['AwayPlayer'];
-                    if($this->elevenkrCheck($homePlayer['UserName']) || $this->elevenkrCheck($awayPlayer['UserName']))
+                    if($users->contains($homePlayer['Id']) || $users->contains($awayPlayer['Id']) )
                     {
                         $refined = [
                             'user_name' => $homePlayer['UserName'],
