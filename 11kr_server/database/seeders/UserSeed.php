@@ -40,7 +40,7 @@ class UserSeed extends Seeder
                 'user_id' => 476893
             ],
             [
-                'user_id' => 120432
+                'user_id' => 467066
             ],
             [
                 'user_id' => 1164864
@@ -53,6 +53,27 @@ class UserSeed extends Seeder
             ],
             [
                 'user_id' => 1242891
+            ],
+            [
+                'user_id' => 537170
+            ],
+            [
+                'user_id' => 508262
+            ],
+            [
+                'user_id' => 426365
+            ],
+            [
+                'user_id' => 339018
+            ],
+            [
+                'user_id' => 153738
+            ],
+            [
+                'user_id' => 479431
+            ],
+            [
+                'user_id' => 120432
             ]
         ];
         foreach($data as $thisData)
