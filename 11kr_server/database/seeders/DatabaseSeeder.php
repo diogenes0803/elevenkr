@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Database\Seeders\BlackListSeed;
+use Database\Seeders\UserSeed;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,6 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             BlackListSeed::class,
+            UserSeed::class,
         ]);
     }
 }
