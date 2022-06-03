@@ -15,66 +15,28 @@ class UserSeed extends Seeder
     public function run()
     {
         $data = [
-            [
-                'user_id' => 552997
-            ],
-            [
-                'user_id' => 1029563
-            ],
-            [
-                'user_id' => 498970
-            ],
-            [
-                'user_id' => 850519
-            ],
-            [
-                'user_id' => 663305
-            ],
-            [
-                'user_id' => 459067
-            ],
-            [
-                'user_id' => 1075595
-            ],
-            [
-                'user_id' => 476893
-            ],
-            [
-                'user_id' => 467066
-            ],
-            [
-                'user_id' => 1164864
-            ],
-            [
-                'user_id' => 454057
-            ],
-            [
-                'user_id' => 717218
-            ],
-            [
-                'user_id' => 1242891
-            ],
-            [
-                'user_id' => 537170
-            ],
-            [
-                'user_id' => 508262
-            ],
-            [
-                'user_id' => 426365
-            ],
-            [
-                'user_id' => 339018
-            ],
-            [
-                'user_id' => 153738
-            ],
-            [
-                'user_id' => 479431
-            ],
-            [
-                'user_id' => 120432
-            ]
+            [ 'user_id' => 120432 ],
+            [ 'user_id' => 153738 ],
+            [ 'user_id' => 339018 ],
+            [ 'user_id' => 426365 ],
+            [ 'user_id' => 454057 ],
+            [ 'user_id' => 459067 ],
+            [ 'user_id' => 467066 ],
+            [ 'user_id' => 476893 ],
+            [ 'user_id' => 479431 ],
+            [ 'user_id' => 498970 ],
+            [ 'user_id' => 508262 ],
+            [ 'user_id' => 537170 ],
+            [ 'user_id' => 552997 ],
+            [ 'user_id' => 663305 ],
+            [ 'user_id' => 717218 ],
+            [ 'user_id' => 850519 ],
+            [ 'user_id' => 916969 ],
+            [ 'user_id' => 1029563 ],
+            [ 'user_id' => 1075595 ],
+            [ 'user_id' => 1164864 ],
+            [ 'user_id' => 1242891 ],
+            [ 'user_id' => 423933 ]
         ];
         foreach($data as $thisData)
         {
