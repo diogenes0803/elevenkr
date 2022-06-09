@@ -10,7 +10,7 @@
     <body class="antialiased">
         <form action="/api/user" method="post">
           <label for="uname">User Name:</label><br>
-          <input type="text" id="uname" name="uname" value=""><br>
+          <input type="text" id="uname" name="uname" placeholder="11K_SOYSAUCE" value=""><br>
           <input type="submit" value="Submit">
         </form> 
     </body>
