@@ -20,3 +20,6 @@ Route::get('/', function () {
 Route::get('/blacklist', function() {
     return view('blacklist');
 });
+Route::get('/new_user', function() {
+    return view('new_user');
+});

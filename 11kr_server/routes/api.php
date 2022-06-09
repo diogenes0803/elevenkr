@@ -23,3 +23,4 @@ Route::get('/matches', [MatchController::class, 'getAllCurentMatches']);
 Route::get('/ranks', [RankController::class, 'getRank']);
 Route::get('/blacklists', [BlackListController::class, 'getAllBlacklists']);
 Route::post('/blacklist', [BlackListController::class, 'addBlackListedUser']);
+Route::post('/user', [UserController::class, 'addUser']);
