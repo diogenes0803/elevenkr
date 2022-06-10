@@ -15,7 +15,7 @@ function NavBar() {
             <Nav.Link as={Link} to="/match">매치현황</Nav.Link>
             <Nav.Link as={Link} to="/rank">랭크현황</Nav.Link>
             <Nav.Link as={Link} to="/blacklist">비매너유저</Nav.Link>
-            <Nav.Link as={Link} to="/youtube">Youtube</Nav.Link>
+            <a className="nav-link" href="https://www.youtube.com/channel/UCJoLd_ZI6Vh_hfZesrsrOBw" target="_blank">Youtube</a>
           </Nav>
         </Navbar.Collapse>
       </Container>
