@@ -17,7 +17,7 @@ class UserController extends Controller
 
     public function addUser(Request $request)
     {
-        $apiUrl = env('ELEVEN_API', '')."/accounts/".$request->input('uname');
+        $apiUrl = env('ELEVEN_API', '')."accounts/".$request->input('uname');
         $response = Http::get($apiUrl);
         if($response->ok())
         {
